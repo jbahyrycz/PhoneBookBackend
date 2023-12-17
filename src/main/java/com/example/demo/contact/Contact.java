@@ -10,20 +10,30 @@ public class Contact {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "contact_sequence")
     private int id;
     private String name;
-    private int number;
-
+    private String number;
+    private String email;
     public Contact() {
     }
 
-    public Contact(int id, String name, int number) {
+    public Contact(int id, String name, String number, String email) {
         this.id = id;
         this.name = name;
         this.number = number;
+        this.email=email;
     }
 
-    public Contact(String name, int number) {
+    public Contact(String name, String number, String email) {
         this.name = name;
         this.number = number;
+        this.email=email;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public int getId() {
@@ -42,11 +52,11 @@ public class Contact {
         this.name = name;
     }
 
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 
@@ -56,6 +66,7 @@ public class Contact {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", number=" + number +
+                ", email='" + email + '\'' +
                 '}';
     }
 }
